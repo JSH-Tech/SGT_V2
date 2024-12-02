@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="SGT_V2.Views.UserControls.PersonUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SGT_V2.Views.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource StackTitreBackgroud}">
+            <Label Content="PERSONS MANAGER" Style="{StaticResource TitreFenPerson}"></Label>
+        </StackPanel>
+
+        <WrapPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" Height="Auto">
+
+            <DockPanel>
+                <Label Content="Matricule" Style="{StaticResource LabelPropPerson}"/>
+                <TextBox Name="txtBoxMatricule" Style="{StaticResource TextBoxFenPerson}"/>
+            </DockPanel>
+
+            <DockPanel>
+                <Label Content="Nom" Style="{StaticResource LabelPropPerson}"/>
+                <TextBox Name="txtBoxNom" Style="{StaticResource TextBoxFenPerson}"/>
+            </DockPanel>
+
+            <DockPanel>
+                <Label Content="Courriel" Style="{StaticResource LabelPropPerson}"/>
+                <TextBox Name="txtBoxCourriel" Style="{StaticResource TextBoxFenPerson}"/>
+            </DockPanel>
+
+            <DockPanel>
+                <Label Content="Departement" Style="{StaticResource LabelPropPerson}"/>
+                <TextBox Name="txtBoxDepartement" Style="{StaticResource TextBoxFenPerson}"/>
+            </DockPanel>
+            
+        </WrapPanel>
+
+        <WrapPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">
+            <Button Name="btnAjouterPerson" Content="Ajouter" Style="{StaticResource PersonCrudButton}"/>
+            <Button Name="btnModifierPerson" Content="Modifier" Style="{StaticResource PersonCrudButton}"/>
+            <Button Name="btnSupprimerPerson" Content="Supprimer" Style="{StaticResource PersonCrudButton}"/>
+            <Button Name="btnReinitialiserPerson" Content="Reinitialiser" Style="{StaticResource PersonCrudButton}"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Column="2" Grid.Row="1"  >
+
+            <CheckBox Content="Matricule" Style="{StaticResource RecherchecheckboxStyle}"/>
+            <CheckBox Content="Nom" Style="{StaticResource RecherchecheckboxStyle}"/>
+            <CheckBox Content="Courriel" Style="{StaticResource RecherchecheckboxStyle}"/>
+            <CheckBox Content="Departement" Style="{StaticResource RecherchecheckboxStyle}"/>
+            <StackPanel Grid.Column="1" Grid.Row="1" Margin="10,0,0,0">
+                <Label Content="Recherche" Style="{StaticResource LabelPropPerson}"/>
+                <TextBox Name="txtBoxRecherche" Style="{StaticResource TextBoxFenPerson}"/>
+                <Button Name="btnRecherchePersone" Content="Rechercher" Style="{StaticResource btnRechercherPerson}"/>
+
+            </StackPanel>
+        </WrapPanel>
+
+        <DataGrid Grid.Row="2" Grid.ColumnSpan="3">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Matricule" Binding="{Binding Matricule}" HeaderStyle="{StaticResource DataGridColumnPerson}"/>
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" HeaderStyle="{StaticResource DataGridColumnPerson}"/>
+                <DataGridTextColumn Header="Courriel" Binding="{Binding Courriel}" HeaderStyle="{StaticResource DataGridColumnPerson}"/>
+                <DataGridTextColumn Header="Departement" Binding="{Binding Departement}" HeaderStyle="{StaticResource DataGridColumnPerson}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
