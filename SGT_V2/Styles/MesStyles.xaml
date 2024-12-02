@@ -91,6 +91,16 @@
         <Setter Property="Height" Value="15"/>
     </Style>
 
+    <Style x:Key="DatePickerFenTicket" TargetType="DatePicker">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Height" Value="25"/>
+    </Style>
     <Style x:Key="ComboBoxFenTicket" TargetType="ComboBox">
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
