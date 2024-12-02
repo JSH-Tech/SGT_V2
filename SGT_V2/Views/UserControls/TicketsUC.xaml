@@ -47,19 +47,20 @@
                     </DockPanel>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
+
+                    <DockPanel>
+                        <Label Content="Date de creation" Style="{StaticResource LabelFenTicket}"/>
+                        <DatePicker Name="datePickerCreation" Style="{StaticResource DatePickerFenTicket}" />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Date de fermeture" Style="{StaticResource LabelFenTicket}"/>
+                        <DatePicker Name="datePickerFermeture" Style="{StaticResource DatePickerFenTicket}" />
+
+                    </DockPanel>
                     <DockPanel>
                         <Label Content="Priorite" Style="{StaticResource LabelFenTicket}"/>
                         <ComboBox Name="cmbBoxPriorite" Style="{StaticResource ComboBoxFenTicket}"/>
                     </DockPanel>
-                    <DockPanel>
-                        <Label Content="Date de creation" Style="{StaticResource LabelFenTicket}"/>
-                        <TextBox Name="txtBoxDateCreation" Style="{StaticResource TextBoxFenTicket}" />
-                    </DockPanel>
-                    <DockPanel>
-                        <Label Content="Date de fermeture" Style="{StaticResource LabelFenTicket}"/>
-                        <TextBox Name="txtBoxFermeture" Style="{StaticResource TextBoxFenTicket}" />
-                    </DockPanel>
-                    
                 </StackPanel>
                 <WrapPanel Grid.Column="2">
                     <CheckBox Name="chkBoxTitre" Content="Titre" IsChecked="False" Style="{StaticResource checkboxStyle}"/>
