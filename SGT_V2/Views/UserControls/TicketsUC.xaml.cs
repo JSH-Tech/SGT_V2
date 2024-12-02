@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace SGT_V2.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for MenuUC.xaml
+    /// Interaction logic for TicketsUC.xaml
     /// </summary>
-    public partial class MenuUC : UserControl
+    public partial class TicketsUC : UserControl
     {
-        public MenuUC()
+        public TicketsUC()
         {
             InitializeComponent();
-        }
-
-        private void btnFenTicket_Click(object sender, RoutedEventArgs e)
-        {
-            Fenetres.FenTicket fenTicket = new Fenetres.FenTicket();
-            fenTicket.ShowDialog();
         }
     }
 }
