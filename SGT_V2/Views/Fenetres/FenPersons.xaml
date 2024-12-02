@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGT_V2.Views.Fenetres"
         mc:Ignorable="d"
+        xmlns:uc="clr-namespace:SGT_V2.Views.UserControls"
+        Style="{StaticResource ThemeFenetre}"
         Title="FenPersons" Height="450" Width="800">
     <Grid>
-        
+        <uc:PersonUC/>
     </Grid>
 </Window>

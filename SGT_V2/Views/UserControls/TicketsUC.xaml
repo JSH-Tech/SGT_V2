@@ -8,16 +8,16 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition ></ColumnDefinition>
-            <ColumnDefinition ></ColumnDefinition>
-            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Style="{StaticResource rowDefinitionFenTicket}"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Content="Tickets" Style="{StaticResource TitreFenTicket}" Grid.ColumnSpan="3"/>
+        <Label Content="TICKETS MANAGER" Style="{StaticResource TitreFenTicket}" Grid.ColumnSpan="3"/>
         
         <WrapPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Vertical">
             <Grid>
@@ -74,12 +74,17 @@
                     <StackPanel>
                         <Label Content="Recherche" Style="{StaticResource LabelFenTicket}"/>
                         <TextBox Name="txtBoxRecherche" Style="{StaticResource TextBoxFenTicket}" Margin="5,0,0,0"/>
-                        <Button Name="btnRecherche" Content="Rechercher" Style="{StaticResource btnRechercher}"/>
+                        <Button Name="btnRechercheTicket" Content="Rechercher" Style="{StaticResource btnRechercher}"/>
                     </StackPanel>
                 </WrapPanel>
 
             </Grid>
-            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="btnAjouterTicket" Content="Ajouter" Style="{StaticResource TicketCrudButton}" />
+                <Button Name="btnModifierTicket" Content="Modifier" Style="{StaticResource TicketCrudButton}" />
+                <Button Name="btnSupprimerTicket" Content="Supprimer" Style="{StaticResource TicketCrudButton}" />
+                <Button Name="btnReinitialiserTicket" Content="Reinitialiser" Style="{StaticResource TicketCrudButton}"/>
+            </StackPanel>
         </WrapPanel>
 
         <DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Name="dataGridTickets" AutoGenerateColumns="False">
