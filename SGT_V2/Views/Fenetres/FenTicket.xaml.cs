@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SGT_V2.Views.UserControls
+namespace SGT_V2.Views.Fenetres
 {
     /// <summary>
-    /// Interaction logic for MenuUC.xaml
+    /// Interaction logic for FenTicket.xaml
     /// </summary>
-    public partial class MenuUC : UserControl
+    public partial class FenTicket : Window
     {
-        public MenuUC()
+        public FenTicket()
         {
             InitializeComponent();
-        }
-
-        private void btnFenTicket_Click(object sender, RoutedEventArgs e)
-        {
-            Fenetres.FenTicket fenTicket = new Fenetres.FenTicket();
-            fenTicket.ShowDialog();
         }
     }
 }
