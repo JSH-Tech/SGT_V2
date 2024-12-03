@@ -24,5 +24,10 @@ namespace SGT_V2.Views.UserControls
         {
             InitializeComponent();
         }
+
+        private void btnAjouterPerson_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -55,10 +55,10 @@
 
         <WrapPanel Grid.Column="2" Grid.Row="1"  >
 
-            <CheckBox Content="Matricule" Style="{StaticResource RecherchecheckboxStyle}"/>
-            <CheckBox Content="Nom" Style="{StaticResource RecherchecheckboxStyle}"/>
-            <CheckBox Content="Courriel" Style="{StaticResource RecherchecheckboxStyle}"/>
-            <CheckBox Content="Departement" Style="{StaticResource RecherchecheckboxStyle}"/>
+            <CheckBox x:Name="checkboxMatricul" Content="Matricule" Style="{StaticResource RecherchecheckboxStyle}"/>
+            <CheckBox x:Name="checkboxNom" Content="Nom" Style="{StaticResource RecherchecheckboxStyle}"/>
+            <CheckBox x:Name="checkboxCourriel" Content="Courriel" Style="{StaticResource RecherchecheckboxStyle}"/>
+            <CheckBox x:Name="checkboxDepartement" Content="Departement" Style="{StaticResource RecherchecheckboxStyle}"/>
             <StackPanel Grid.Column="1" Grid.Row="1" Margin="10,0,0,0">
                 <Label Content="Recherche" Style="{StaticResource LabelPropPerson}"/>
                 <TextBox Name="txtBoxRecherche" Style="{StaticResource TextBoxFenPerson}"/>
