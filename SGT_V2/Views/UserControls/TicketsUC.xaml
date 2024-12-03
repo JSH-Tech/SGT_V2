@@ -87,7 +87,7 @@
             </StackPanel>
         </WrapPanel>
 
-        <DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Name="dataGridTickets" AutoGenerateColumns="False">
+        <DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Name="DataGridTickets" IsReadOnly="True" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" HeaderStyle="{StaticResource DataGridColumn}"/>
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" HeaderStyle="{StaticResource DataGridColumn}"/>

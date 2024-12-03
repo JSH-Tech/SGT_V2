@@ -22,7 +22,7 @@ public partial class DbSgtContext : DbContext
     public virtual DbSet<Ticket> Tickets { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySQL("Server=127.0.0.1; Database=db_sgt; Uid=root;");
+        => optionsBuilder.UseMySQL("Server=127.0.0.1; Database=db_sgt; Uid=root");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -83,6 +83,8 @@ public partial class DbSgtContext : DbContext
             entity.ToTable("tickets");
 
             entity.HasIndex(e => e.IdpersonneTickets, "IDPERSONNE_TICKETS");
+
+            entity.HasIndex(e => e.Titre, "TITRE").IsUnique();
 
             entity.Property(e => e.Idticket)
                 .HasColumnType("int(11)")
