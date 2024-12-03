@@ -22,7 +22,7 @@ public partial class DbSgtContext : DbContext
     public virtual DbSet<Ticket> Tickets { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySQL("Server=127.0.0.1; Database=db_sgt; Uid=root");
+     => optionsBuilder.UseMySQL("Server=127.0.0.1; Database=db_sgt; Uid=root; Pwd=root");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -34,22 +34,18 @@ public partial class DbSgtContext : DbContext
 
             entity.HasIndex(e => e.IdticketCommentaire, "IDTICKET_COMMENTAIRE");
 
-            entity.Property(e => e.Idcommentaire)
-                .HasColumnType("int(11)")
-                .HasColumnName("IDCOMMENTAIRE");
+            entity.Property(e => e.Idcommentaire).HasColumnName("IDCOMMENTAIRE");
             entity.Property(e => e.Contenu)
                 .HasColumnType("text")
                 .HasColumnName("CONTENU");
             entity.Property(e => e.Datecommentaire)
-                .HasColumnType("datetime")
+                .HasColumnType("date")
                 .HasColumnName("DATECOMMENTAIRE");
-            entity.Property(e => e.IdticketCommentaire)
-                .HasColumnType("int(11)")
-                .HasColumnName("IDTICKET_COMMENTAIRE");
+            entity.Property(e => e.IdticketCommentaire).HasColumnName("IDTICKET_COMMENTAIRE");
 
             entity.HasOne(d => d.IdticketCommentaireNavigation).WithMany(p => p.Commentaires)
                 .HasForeignKey(d => d.IdticketCommentaire)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("commentaires_ibfk_1");
         });
 
@@ -59,20 +55,16 @@ public partial class DbSgtContext : DbContext
 
             entity.ToTable("personnes");
 
-            entity.Property(e => e.Idpersonne)
-                .HasColumnType("int(11)")
-                .HasColumnName("IDPERSONNE");
+            entity.Property(e => e.Idpersonne).HasColumnName("IDPERSONNE");
             entity.Property(e => e.Courriel)
-                .HasMaxLength(25)
+                .HasMaxLength(50)
                 .HasColumnName("COURRIEL");
             entity.Property(e => e.Departement)
-                .HasMaxLength(20)
-                .HasColumnName("DEPARTEMENT");
-            entity.Property(e => e.Matricule)
-                .HasColumnType("int(11)")
-                .HasColumnName("MATRICULE");
-            entity.Property(e => e.Nom)
                 .HasMaxLength(40)
+                .HasColumnName("DEPARTEMENT");
+            entity.Property(e => e.Matricule).HasColumnName("MATRICULE");
+            entity.Property(e => e.Nom)
+                .HasMaxLength(50)
                 .HasColumnName("NOM");
         });
 
@@ -84,11 +76,7 @@ public partial class DbSgtContext : DbContext
 
             entity.HasIndex(e => e.IdpersonneTickets, "IDPERSONNE_TICKETS");
 
-            entity.HasIndex(e => e.Titre, "TITRE").IsUnique();
-
-            entity.Property(e => e.Idticket)
-                .HasColumnType("int(11)")
-                .HasColumnName("IDTICKET");
+            entity.Property(e => e.Idticket).HasColumnName("IDTICKET");
             entity.Property(e => e.Categorie)
                 .HasMaxLength(25)
                 .HasColumnName("CATEGORIE");
@@ -96,12 +84,9 @@ public partial class DbSgtContext : DbContext
                 .HasColumnType("date")
                 .HasColumnName("DATECREATION");
             entity.Property(e => e.Datefermeture)
-                .HasDefaultValueSql("'NULL'")
                 .HasColumnType("date")
                 .HasColumnName("DATEFERMETURE");
-            entity.Property(e => e.IdpersonneTickets)
-                .HasColumnType("int(11)")
-                .HasColumnName("IDPERSONNE_TICKETS");
+            entity.Property(e => e.IdpersonneTickets).HasColumnName("IDPERSONNE_TICKETS");
             entity.Property(e => e.Priorite)
                 .HasMaxLength(25)
                 .HasColumnName("PRIORITE");
@@ -117,7 +102,7 @@ public partial class DbSgtContext : DbContext
 
             entity.HasOne(d => d.IdpersonneTicketsNavigation).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.IdpersonneTickets)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("tickets_ibfk_1");
         });
 

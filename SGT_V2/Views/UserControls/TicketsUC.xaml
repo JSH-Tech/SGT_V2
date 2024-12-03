@@ -61,6 +61,11 @@
                         <Label Content="Priorite" Style="{StaticResource LabelFenTicket}"/>
                         <ComboBox Name="cmbBoxPriorite" Style="{StaticResource ComboBoxFenTicket}"/>
                     </DockPanel>
+                    <DockPanel>
+                        <Label Content="Personne" Style="{StaticResource LabelFenTicket}"/>
+                        <ComboBox Name="cmbBoxPersonne" IsEditable="True" Style="{StaticResource ComboBoxFenTicket}"/>
+                    </DockPanel>
+                    
                 </StackPanel>
                 <WrapPanel Grid.Column="2">
                     <CheckBox Name="chkBoxTitre" Content="Titre" IsChecked="False" Style="{StaticResource checkboxStyle}"/>
