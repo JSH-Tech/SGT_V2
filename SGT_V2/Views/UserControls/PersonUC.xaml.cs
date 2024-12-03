@@ -32,9 +32,7 @@ namespace SGT_V2.Views.UserControls
             sgtContext.Database.EnsureCreated();
             sgtContext.Personnes.Load();
             collectionViewSourcePerson.Source = sgtContext.Personnes.Local.ToObservableCollection();
-        }
-
-        
+        }        
 
         //Button ajouter
         private void btnAjouterPerson_Click(object sender, RoutedEventArgs e)
@@ -230,7 +228,6 @@ namespace SGT_V2.Views.UserControls
         {
             dataGridPerson.SelectedItem = null;
         }
-
 
     }
 }
