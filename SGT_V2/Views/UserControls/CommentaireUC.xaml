@@ -20,5 +20,47 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Content="Commentaire Manager" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="3" Style="{StaticResource TitreFenPerson}"/>
+        <WrapPanel Grid.Column="0" Grid.Row="1"  Orientation="Vertical">
+            <DockPanel>
+                <Label Content="Titre du ticket" Style="{StaticResource LabelPropCommentaire}"/>
+                <TextBox Name="txtBoxTitreCommentaire" Style="{StaticResource TextBoxFenCommentaire}"/>
+            </DockPanel>
+
+            <DockPanel>
+                <Label Content="Date de modification" Style="{StaticResource LabelPropCommentaire}"/>
+                <DatePicker Name="datePickerCreationCommentaire"/>
+            </DockPanel>
+
+            <DockPanel>
+                <Label Content="Commentaire" Style="{StaticResource LabelPropCommentaire}"/>
+                <TextBox Name="txtBoxCommentaire" Style="{StaticResource TextBoxFenCommentaire}"/>
+            </DockPanel>
+        </WrapPanel>
+        <WrapPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">
+            <Button Name="btnAjouterCommentaire" Content="Ajouter" Style="{StaticResource PersonCrudButton}"/>
+            <Button Name="btnModifierCommentaire" Content="Modifier" Style="{StaticResource PersonCrudButton}"/>
+            <Button Name="btnSupprimerCommentaire" Content="Supprimer" Style="{StaticResource PersonCrudButton}"/>
+            <Button Name="btnReinitialiserCommentaire" Content="Reinitialiser" Style="{StaticResource PersonCrudButton}"/>
+        </WrapPanel>
+        <WrapPanel Grid.Column="2" Grid.Row="1"  >
+            <CheckBox Content="Titre" Style="{StaticResource RecherchecheckboxStyle}"/>
+            <CheckBox Content="Date de modification" Style="{StaticResource RecherchecheckboxStyle}"/>
+            <CheckBox Content="Commentaire" Style="{StaticResource RecherchecheckboxStyle}"/>
+            
+            <StackPanel>
+                <Label Content="Recherche" Style="{StaticResource LabelPropCommentaire}"/>
+                <TextBox Name="txtBoxRechercheCommentaire" Style="{StaticResource TextBoxFenCommentaire}"/>
+                <Button Name="btnRechercheCommentaire" Content="Rechercher" Style="{StaticResource btnRechercherPerson}"/>
+            </StackPanel>
+        </WrapPanel>
+                       
+        <DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Name="DataGridCommentaire"  IsReadOnly="True" SelectionMode="Single" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" HeaderStyle="{StaticResource DataGridColumCommentStyle}"/>
+                <DataGridTextColumn Header="Date de modification" Binding="{Binding DateModification}" HeaderStyle="{StaticResource DataGridColumCommentStyle}"/>
+                <DataGridTextColumn Header="Commentaire" Binding="{Binding Commentaire}" HeaderStyle="{StaticResource DataGridColumCommentStyle}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
     </Grid>
 </UserControl>

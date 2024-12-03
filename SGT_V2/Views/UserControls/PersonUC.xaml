@@ -67,7 +67,7 @@
             </StackPanel>
         </WrapPanel>
 
-        <DataGrid Grid.Row="2" Grid.ColumnSpan="3">
+        <DataGrid Grid.Row="2" Grid.ColumnSpan="3" x:Name="DataGridPerson" IsReadOnly="True" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Matricule" Binding="{Binding Matricule}" HeaderStyle="{StaticResource DataGridColumnPerson}"/>
                 <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" HeaderStyle="{StaticResource DataGridColumnPerson}"/>

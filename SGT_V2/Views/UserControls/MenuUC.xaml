@@ -25,6 +25,6 @@
         <Image Height="100" Width="100" Grid.Column="2" Grid.Row="1" Source="/Images/commentaire94.png" />
         <Button Name="btnFenTicket" Content="TICKETS" Grid.Column="0" Grid.Row="2" Style="{StaticResource TicketButton}" Click="btnFenTicket_Click"/>
         <Button Name="btnFenPerson" Content="PERSONS" Grid.Column="1" Grid.Row="2" Style="{StaticResource TicketButton}" Click="btnFenPerson_Click"/>
-        <Button Name="btnFenComment" Content="COMMENTS" Grid.Column="2" Grid.Row="2" Style="{StaticResource TicketButton}"/>
+        <Button Name="btnFenComment" Content="COMMENTS" Grid.Column="2" Grid.Row="2" Style="{StaticResource TicketButton}" Click="btnFenComment_Click"/>
     </Grid>
 </UserControl>
