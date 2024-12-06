@@ -31,9 +31,9 @@ namespace SGT_V2.Views.UserControls
             collectionViewSourcePerson = (CollectionViewSource) FindResource(nameof(collectionViewSourcePerson));
             sgtContext.Database.EnsureCreated();
             sgtContext.Personnes.Load();
-
-            collectionViewSourcePerson.Source = sgtContext.Personnes.Local.ToObservableCollection();
         }
+
+        
 
         //Button ajouter
         private void btnAjouterPerson_Click(object sender, RoutedEventArgs e)
