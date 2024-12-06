@@ -5,7 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SGT_V2.Views.UserControls"
              mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="ticketViewSource"/>
+        <CollectionViewSource x:Key="personneViewSource"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -63,18 +68,19 @@
                     </DockPanel>
                     <DockPanel>
                         <Label Content="Personne" Style="{StaticResource LabelFenTicket}"/>
-                        <ComboBox Name="cmbBoxPersonne" IsEditable="True" Style="{StaticResource ComboBoxFenTicket}"/>
+                        <ComboBox Name="cmbBoxPersonne" IsEditable="True" Style="{StaticResource ComboBoxFenTicket}" ItemsSource="{Binding Source={StaticResource personneViewSource}}" />
+
                     </DockPanel>
                     
                 </StackPanel>
                 <WrapPanel Grid.Column="2">
-                    <CheckBox Name="chkBoxTitre" Content="Titre" IsChecked="False" Style="{StaticResource checkboxStyle}"/>
-                    <CheckBox Name="chkBoxType" Content="Type" IsChecked="False" Style="{StaticResource checkboxStyle}"/>
-                    <CheckBox Name="chkBoxStatus" Content="Status" IsChecked="False" Style="{StaticResource checkboxStyle}"/>
-                    <CheckBox Name="chkBoxCategorie" Content="Categorie" IsChecked="False" Style="{StaticResource checkboxStyle}"/>
-                    <CheckBox Name="chkBoxPriorite" Content="Priorite" IsChecked="False" Style="{StaticResource checkboxStyle}"/>
-                    <CheckBox Name="chkBoxCreation" Content="Creation" IsChecked="False" Style="{StaticResource checkboxStyle}"/>
-                    <CheckBox Name="chkBoxFermeture" Content="Fermeture" IsChecked="False" Style="{StaticResource checkboxStyle}"/>
+                    <RadioButton Name="chkBoxTitre" Content="Titre" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
+                    <RadioButton Name="chkBoxType" Content="Type" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
+                    <RadioButton Name="chkBoxStatus" Content="Status" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
+                    <RadioButton Name="chkBoxCategorie" Content="Categorie" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
+                    <RadioButton Name="chkBoxPriorite" Content="Priorite" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
+                    <RadioButton Name="chkBoxCreation" Content="Creation" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
+                    <RadioButton Name="chkBoxFermeture" Content="Fermeture" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
 
                     <StackPanel>
                         <Label Content="Recherche" Style="{StaticResource LabelFenTicket}"/>
@@ -85,14 +91,14 @@
 
             </Grid>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Name="btnAjouterTicket" Content="Ajouter" Style="{StaticResource TicketCrudButton}" />
+                <Button Name="btnAjouterTicket" Content="Ajouter" Style="{StaticResource TicketCrudButton}" Click="btnAjouterTicket_Click" />
                 <Button Name="btnModifierTicket" Content="Modifier" Style="{StaticResource TicketCrudButton}" />
                 <Button Name="btnSupprimerTicket" Content="Supprimer" Style="{StaticResource TicketCrudButton}" />
                 <Button Name="btnReinitialiserTicket" Content="Reinitialiser" Style="{StaticResource TicketCrudButton}"/>
             </StackPanel>
         </WrapPanel>
 
-        <DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Name="DataGridTickets" IsReadOnly="True" SelectionMode="Single">
+        <DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Name="dataGridTickets" IsReadOnly="True" SelectionMode="Single" ItemsSource="{Binding Source={StaticResource ticketViewSource}}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" HeaderStyle="{StaticResource DataGridColumn}"/>
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" HeaderStyle="{StaticResource DataGridColumn}"/>

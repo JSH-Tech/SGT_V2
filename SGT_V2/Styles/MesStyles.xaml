@@ -164,7 +164,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 
-    <Style x:Key="checkboxStyle" TargetType="CheckBox">
+    <Style x:Key="RadioButtonTicket" TargetType="RadioButton">
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -176,7 +176,7 @@
         <Setter Property="Margin" Value="10,0,0,0"/>
     </Style>
 
-    <Style x:Key="RecherchecheckboxStyle" TargetType="CheckBox">
+    <Style x:Key="RecherRadioStyle" TargetType="RadioButton">
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>

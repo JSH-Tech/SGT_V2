@@ -16,4 +16,9 @@ public partial class Personne
     public string Departement { get; set; } = null!;
 
     public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+
+    public override string ToString()
+    {
+        return Nom;
+    }
 }
