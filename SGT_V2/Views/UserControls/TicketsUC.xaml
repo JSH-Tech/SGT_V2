@@ -73,11 +73,6 @@
                     
                 </StackPanel>
                 <WrapPanel Grid.Column="2">
-                    <RadioButton Name="chkBoxTitre" Content="Titre" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
-                    <RadioButton Name="chkBoxType" Content="Type" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
-                    <RadioButton Name="chkBoxStatus" Content="Status" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
-                    <RadioButton Name="chkBoxCategorie" Content="Categorie" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
-                    <RadioButton Name="chkBoxPriorite" Content="Priorite" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
                     <RadioButton Name="chkBoxCreation" Content="Creation" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
                     <RadioButton Name="chkBoxFermeture" Content="Fermeture" IsChecked="False" Style="{StaticResource RadioButtonTicket}"/>
 
@@ -93,7 +88,7 @@
                 <Button Name="btnAjouterTicket" Content="Ajouter" Style="{StaticResource TicketCrudButton}" Click="btnAjouterTicket_Click" />
                 <Button Name="btnModifierTicket" Content="Modifier" Style="{StaticResource TicketCrudButton}" />
                 <Button Name="btnSupprimerTicket" Content="Supprimer" Style="{StaticResource TicketCrudButton}" />
-                <Button Name="btnReinitialiserTicket" Content="Reinitialiser" Style="{StaticResource TicketCrudButton}"/>
+                <Button Name="btnReinitialiserTicket" Content="Reinitialiser" Style="{StaticResource TicketCrudButton}" Click="btnReinitialiserTicket_Click"/>
             </StackPanel>
         </WrapPanel>
 
