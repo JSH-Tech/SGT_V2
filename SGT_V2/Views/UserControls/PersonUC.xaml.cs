@@ -34,8 +34,6 @@ namespace SGT_V2.Views.UserControls
             collectionViewSourcePerson.Source = sgtContext.Personnes.Local.ToObservableCollection();
         }
 
-
-
         //Button ajouter
         private void btnAjouterPerson_Click(object sender, RoutedEventArgs e)
         {
@@ -199,6 +197,7 @@ namespace SGT_V2.Views.UserControls
         private void btnRecherchePersone_Click(object sender, RoutedEventArgs e)
         {
             string motRechercher = txtBoxRecherche.Text;
+            
             if (!string.IsNullOrEmpty(motRechercher))
             {
                 if (checkboxMatricul.IsChecked == true)
@@ -234,7 +233,5 @@ namespace SGT_V2.Views.UserControls
         {
             dataGridPerson.SelectedItem = null;
         }
-
-
     }
 }

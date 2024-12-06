@@ -39,7 +39,6 @@ namespace SGT_V2.Views.UserControls
         }
 
 
-        //Button ajouter
         private void btnAjouterTicket_Click(object sender, RoutedEventArgs e)
         {
             //Recuperation des valeurs des champs
