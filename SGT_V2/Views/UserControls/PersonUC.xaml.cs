@@ -171,6 +171,10 @@ namespace SGT_V2.Views.UserControls
                 dataGridPerson.Items.Refresh();
                 ViderChamps();
             }
+            else
+            {
+                MessageBox.Show("Veuillez selectionner une personne à supprimer");
+            }
         }
 
         //Button reinitialiser

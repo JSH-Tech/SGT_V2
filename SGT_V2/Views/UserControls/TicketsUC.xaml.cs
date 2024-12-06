@@ -39,10 +39,44 @@ namespace SGT_V2.Views.UserControls
         }
 
 
-
+        //Button ajouter
         private void btnAjouterTicket_Click(object sender, RoutedEventArgs e)
         {
+            //Recuperation des valeurs des champs
+            string titre = txtBoxTitre.Text;
+            string? type=cmbBoxType.SelectedItem.ToString();
+            string? priorite = cmbBoxPriorite.SelectedItem.ToString();
+            string? statut = cmbBoxStatus.SelectedItem.ToString();
+            Personne? personne = cmbBoxPersonne.SelectedItem as Personne;
+            string? categorie = cmbBoxCategorie.SelectedItem.ToString();
 
+            //Validation des champs date
+            if (datePickerCreation.SelectedDate == null)
+            {
+                MessageBox.Show("Veuillez renseigner la date de création du ticket");
+                datePickerCreation.Focus();
+            }
+            else
+            {
+                DateTime dateCreation = datePickerCreation.SelectedDate.Value;
+            }
+
+            if (string.IsNullOrEmpty(titre))
+            {
+                MessageBox.Show("Veuillez renseigner le titre du ticket");
+                txtBoxTitre.Focus();
+            }
+
+            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(priorite) || string.IsNullOrEmpty(statut) || string.IsNullOrEmpty(categorie))
+            {
+                MessageBox.Show("Veuillez renseigner tous les champs");
+            }
+
+            if (personne is null)
+            {
+                MessageBox.Show("Veuillez selectionner une personne");
+                cmbBoxPersonne.Focus();
+            }
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
