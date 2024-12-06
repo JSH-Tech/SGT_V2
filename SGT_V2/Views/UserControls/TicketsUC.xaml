@@ -69,7 +69,6 @@
                     <DockPanel>
                         <Label Content="Personne" Style="{StaticResource LabelFenTicket}"/>
                         <ComboBox Name="cmbBoxPersonne" IsEditable="True" Style="{StaticResource ComboBoxFenTicket}" ItemsSource="{Binding Source={StaticResource personneViewSource}}" />
-
                     </DockPanel>
                     
                 </StackPanel>
