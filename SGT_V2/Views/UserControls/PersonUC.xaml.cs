@@ -31,9 +31,9 @@ namespace SGT_V2.Views.UserControls
             collectionViewSourcePerson = (CollectionViewSource) FindResource(nameof(collectionViewSourcePerson));
             sgtContext.Database.EnsureCreated();
             sgtContext.Personnes.Load();
-
-            collectionViewSourcePerson.Source = sgtContext.Personnes.Local.ToObservableCollection();
         }
+
+        
 
         //Button ajouter
         private void btnAjouterPerson_Click(object sender, RoutedEventArgs e)
@@ -175,7 +175,8 @@ namespace SGT_V2.Views.UserControls
         //Button reinitialiser
         private void btnReinitialiserPerson_Click(object sender, RoutedEventArgs e)
         {
-            ViderChamps();  
+            ViderChamps();
+            dataGridPerson.ItemsSource=sgtContext.Personnes.ToList();
         }
 
         private void ViderChamps()
@@ -187,14 +188,13 @@ namespace SGT_V2.Views.UserControls
             txtBoxMatricule.Focus();
             txtBoxRecherche.Text = "";
             checkboxMatricul.IsChecked = false;
-
         }
 
         
         private void btnRecherchePersone_Click(object sender, RoutedEventArgs e)
         {
             string motRechercher = txtBoxRecherche.Text;
-            if (motRechercher is not null)
+            if (!string.IsNullOrEmpty(motRechercher) )
             {
                 if (checkboxMatricul.IsChecked==true)
                 {
@@ -208,7 +208,7 @@ namespace SGT_V2.Views.UserControls
                     }
                     else
                     {
-                        MessageBox.Show("La valeur de recherche d'un numero matricule ne peut etre nulle");
+                        MessageBox.Show("La valeur de recherche d'un numero matricule doit etre un entier");
                     }
                 }
                 else
@@ -230,9 +230,6 @@ namespace SGT_V2.Views.UserControls
             dataGridPerson.SelectedItem = null;
         }
 
-        private void btnAjouterPerson_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
 }
