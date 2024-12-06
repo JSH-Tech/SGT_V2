@@ -39,16 +39,25 @@
                     </DockPanel>
                     <DockPanel>
                         <Label Content="Type" Style="{StaticResource LabelFenTicket}"/>
-                       
-                        <ComboBox Name="cmbBoxType" Style="{StaticResource ComboBoxFenTicket}"/>
+                        <ComboBox Name="cmbBoxType" Style="{StaticResource ComboBoxFenTicket}">
+                            <ComboBoxItem Content="Panne"/>
+                            <ComboBoxItem Content="Service"/>
+                        </ComboBox>
                     </DockPanel>
                     <DockPanel>
                         <Label Content="Status" Style="{StaticResource LabelFenTicket}"/>
-                        <ComboBox Name="cmbBoxStatus" Style="{StaticResource ComboBoxFenTicket}" />
+                        <ComboBox Name="cmbBoxStatus" Style="{StaticResource ComboBoxFenTicket}">
+                            <ComboBoxItem Content="Ouvert"/>
+                            <ComboBoxItem Content="Ferme"/>
+                        </ComboBox>
                     </DockPanel>
                     <DockPanel Width="250">
                         <Label Content="Categorie" Style="{StaticResource LabelFenTicket}"/>
-                        <ComboBox Name="cmbBoxCategorie" Style="{StaticResource ComboBoxFenTicket}" />
+                        <ComboBox Name="cmbBoxCategorie" Style="{StaticResource ComboBoxFenTicket}">
+                            <ComboBoxItem Content="Materiel"/>
+                            <ComboBoxItem Content="Logiciel"/>
+                            <ComboBoxItem Content="Reseau"/>
+                        </ComboBox>
                     </DockPanel>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
@@ -64,12 +73,16 @@
                     </DockPanel>
                     <DockPanel>
                         <Label Content="Priorite" Style="{StaticResource LabelFenTicket}"/>
-                        <ComboBox Name="cmbBoxPriorite" Style="{StaticResource ComboBoxFenTicket}"/>
+                        <ComboBox Name="cmbBoxPriorite" Style="{StaticResource ComboBoxFenTicket}">
+                            <ComboBoxItem Content="Basse"/>
+                            <ComboBoxItem Content="Moyenne"/>
+                            <ComboBoxItem Content="Haute"/>
+                            <ComboBoxItem Content="Critique"/>
+                        </ComboBox>
                     </DockPanel>
                     <DockPanel>
                         <Label Content="Personne" Style="{StaticResource LabelFenTicket}"/>
                         <ComboBox Name="cmbBoxPersonne" IsEditable="True" Style="{StaticResource ComboBoxFenTicket}" ItemsSource="{Binding Source={StaticResource personneViewSource}}" />
-
                     </DockPanel>
                     
                 </StackPanel>

@@ -58,8 +58,8 @@
         </WrapPanel>
 
         <WrapPanel Grid.Column="2" Grid.Row="1"  >
-            <RadioButton x:Name="checkboxMatricul" Content="Matricule" Style="{StaticResource RecherRadioStyle}"/>
 
+            <RadioButton x:Name="checkboxMatricul" Content="Matricule" Style="{StaticResource RecherRadioStyle}"/>
             <StackPanel Grid.Column="1" Grid.Row="1" Margin="10,0,0,0">
                 <Label Content="Recherche" Style="{StaticResource LabelPropPerson}"/>
                 <TextBox Name="txtBoxRecherche" Style="{StaticResource TextBoxFenPerson}"/>

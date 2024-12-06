@@ -24,17 +24,15 @@ namespace SGT_V2.Views.UserControls
     {
         readonly DbSgtContext sgtContext = new DbSgtContext();
 
-        CollectionViewSource  collectionViewSourcePerson = new CollectionViewSource();
+        CollectionViewSource collectionViewSourcePerson = new CollectionViewSource();
         public PersonUC()
         {
             InitializeComponent();
-            collectionViewSourcePerson = (CollectionViewSource) FindResource(nameof(collectionViewSourcePerson));
+            collectionViewSourcePerson = (CollectionViewSource)FindResource(nameof(collectionViewSourcePerson));
             sgtContext.Database.EnsureCreated();
             sgtContext.Personnes.Load();
             collectionViewSourcePerson.Source = sgtContext.Personnes.Local.ToObservableCollection();
         }
-
-        
 
         //Button ajouter
         private void btnAjouterPerson_Click(object sender, RoutedEventArgs e)
@@ -63,7 +61,7 @@ namespace SGT_V2.Views.UserControls
                 personne.Departement = departement;
 
                 //Ajout de la personne
-                
+
                 try
                 {
                     sgtContext.Personnes.Add(personne);
@@ -73,9 +71,9 @@ namespace SGT_V2.Views.UserControls
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show("Erreur"+ex.Message);
+                    MessageBox.Show("Erreur" + ex.Message);
                 }
-                
+
                 txtBoxMatricule.Focus();
                 //Rafraichissement de la liste
                 collectionViewSourcePerson.Source = sgtContext.Personnes.Local.ToObservableCollection();
@@ -90,7 +88,7 @@ namespace SGT_V2.Views.UserControls
         {
             //Recuperation de la personne selectionnée
 
-            if(dataGridPerson.SelectedItem is null)
+            if (dataGridPerson.SelectedItem is null)
             {
                 ViderChamps();
                 return;
@@ -165,11 +163,15 @@ namespace SGT_V2.Views.UserControls
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show("Erreur"+ex.Message);
+                    MessageBox.Show("Erreur" + ex.Message);
                 }
 
                 dataGridPerson.Items.Refresh();
                 ViderChamps();
+            }
+            else
+            {
+                MessageBox.Show("Veuillez selectionner une personne à supprimer");
             }
         }
 
@@ -177,7 +179,7 @@ namespace SGT_V2.Views.UserControls
         private void btnReinitialiserPerson_Click(object sender, RoutedEventArgs e)
         {
             ViderChamps();
-            dataGridPerson.ItemsSource=sgtContext.Personnes.ToList();
+            dataGridPerson.ItemsSource = sgtContext.Personnes.ToList();
         }
 
         private void ViderChamps()
@@ -191,20 +193,21 @@ namespace SGT_V2.Views.UserControls
             checkboxMatricul.IsChecked = false;
         }
 
-        
+
         private void btnRecherchePersone_Click(object sender, RoutedEventArgs e)
         {
             string motRechercher = txtBoxRecherche.Text;
-            if (!string.IsNullOrEmpty(motRechercher) )
+            
+            if (!string.IsNullOrEmpty(motRechercher))
             {
-                if (checkboxMatricul.IsChecked==true)
+                if (checkboxMatricul.IsChecked == true)
                 {
                     int valeurMatricul;
-                    bool result =int.TryParse(motRechercher, out valeurMatricul);
+                    bool result = int.TryParse(motRechercher, out valeurMatricul);
                     if (result)
                     {
                         var requete = sgtContext.Personnes.AsQueryable();
-                        requete = requete.Where(p=> p.Matricule == valeurMatricul);
+                        requete = requete.Where(p => p.Matricule == valeurMatricul);
                         dataGridPerson.ItemsSource = requete.ToList();
                     }
                     else
@@ -216,21 +219,19 @@ namespace SGT_V2.Views.UserControls
                 {
                     var requete = sgtContext.Personnes.AsQueryable();
                     requete = requete.Where(p => p.Nom.Contains(motRechercher) || p.Courriel.Contains(motRechercher) || p.Departement.Contains(motRechercher));
-                    dataGridPerson.ItemsSource=requete.ToList();
+                    dataGridPerson.ItemsSource = requete.ToList();
                 }
             }
             else
             {
                 MessageBox.Show("Veuillez remplir le champ de recherche");
             }
-            
+
         }
 
         public void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             dataGridPerson.SelectedItem = null;
         }
-
-
     }
 }
