@@ -42,12 +42,8 @@ namespace SGT_V2.Views.UserControls
         private void btnAjouterTicket_Click(object sender, RoutedEventArgs e)
         {
             //Recuperation des valeurs des champs
-            string titre = txtBoxTitre.Text;
-            string? type=cmbBoxType.SelectedItem.ToString();
-            string? priorite = cmbBoxPriorite.SelectedItem.ToString();
-            string? statut = cmbBoxStatus.SelectedItem.ToString();
-            Personne? personne = cmbBoxPersonne.SelectedItem as Personne;
-            string? categorie = cmbBoxCategorie.SelectedItem.ToString();
+            
+            
 
             //Validation des champs date
             if (datePickerCreation.SelectedDate == null)
@@ -60,21 +56,38 @@ namespace SGT_V2.Views.UserControls
                 DateTime dateCreation = datePickerCreation.SelectedDate.Value;
             }
 
-            if (string.IsNullOrEmpty(titre))
+            if (string.IsNullOrEmpty(txtBoxTitre.Text))
             {
                 MessageBox.Show("Veuillez renseigner le titre du ticket");
                 txtBoxTitre.Focus();
             }
-
-            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(priorite) || string.IsNullOrEmpty(statut) || string.IsNullOrEmpty(categorie))
+            else
             {
-                MessageBox.Show("Veuillez renseigner tous les champs");
+                string titre = txtBoxTitre.Text;
             }
 
-            if (personne is null)
+            if (cmbBoxType.SelectedItem is null || cmbBoxPriorite.SelectedItem is null || cmbBoxStatus.SelectedItem is null || cmbBoxCategorie.SelectedItem is null)
+            {
+                MessageBox.Show("Veuillez renseigner tous les champs");
+                cmbBoxType.Focus();
+            }
+            else
+            {
+                string? type = cmbBoxType.SelectedItem.ToString();
+                string? priorite = cmbBoxPriorite.SelectedItem.ToString();
+                string? statut = cmbBoxStatus.SelectedItem.ToString();
+                string? categorie = cmbBoxCategorie.SelectedItem.ToString();
+            }
+
+            if (cmbBoxPersonne.SelectedItem as Personne is null)
             {
                 MessageBox.Show("Veuillez selectionner une personne");
                 cmbBoxPersonne.Focus();
+            }
+            else
+            {
+
+                Personne? personne = cmbBoxPersonne.SelectedItem as Personne;
             }
         }
 
