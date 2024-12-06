@@ -31,6 +31,7 @@ namespace SGT_V2.Views.UserControls
             collectionViewSourcePerson = (CollectionViewSource) FindResource(nameof(collectionViewSourcePerson));
             sgtContext.Database.EnsureCreated();
             sgtContext.Personnes.Load();
+            collectionViewSourcePerson.Source = sgtContext.Personnes.Local.ToObservableCollection();
         }
 
         
@@ -222,7 +223,7 @@ namespace SGT_V2.Views.UserControls
             {
                 MessageBox.Show("Veuillez remplir le champ de recherche");
             }
-            UserControl_Loaded(sender, e);
+            
         }
 
         public void UserControl_Loaded(object sender, RoutedEventArgs e)

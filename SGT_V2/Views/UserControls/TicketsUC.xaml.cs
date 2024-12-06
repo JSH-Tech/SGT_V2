@@ -49,6 +49,11 @@ namespace SGT_V2.Views.UserControls
         {
             dataGridTickets.SelectedItem = null;
             cmbBoxPersonne.SelectedItem = null;
-        } 
+        }
+
+        private void btnReinitialiserTicket_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
