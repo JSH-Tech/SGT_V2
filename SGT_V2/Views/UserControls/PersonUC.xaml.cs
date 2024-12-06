@@ -229,5 +229,10 @@ namespace SGT_V2.Views.UserControls
         {
             dataGridPerson.SelectedItem = null;
         }
+
+        private void btnAjouterPerson_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
