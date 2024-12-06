@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using SGT_V2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,31 @@ namespace SGT_V2.Views.UserControls
     /// </summary>
     public partial class TicketsUC : UserControl
     {
+        readonly DbSgtContext dbSgtContext = new DbSgtContext();
+        CollectionViewSource ticketViewSource;
+        CollectionViewSource personneViewSource;
         public TicketsUC()
         {
             InitializeComponent();
+            ticketViewSource = (CollectionViewSource)FindResource(nameof(ticketViewSource));
+            personneViewSource = (CollectionViewSource)FindResource(nameof(personneViewSource));
+            dbSgtContext.Database.EnsureCreated();
+            dbSgtContext.Tickets.Load();
+            dbSgtContext.Personnes.Load();
+
+            ticketViewSource.Source = dbSgtContext.Tickets.Local.ToObservableCollection();
+            personneViewSource.Source = dbSgtContext.Personnes.Local.ToObservableCollection();
         }
+
+        private void btnAjouterTicket_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            dataGridTickets.SelectedItem = null;
+            cmbBoxPersonne.SelectedItem = null;
+        } 
     }
 }
