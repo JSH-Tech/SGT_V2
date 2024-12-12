@@ -48,6 +48,7 @@
                         <Label Content="Status" Style="{StaticResource LabelFenTicket}"/>
                         <ComboBox Name="cmbBoxStatus" Style="{StaticResource ComboBoxFenTicket}">
                             <ComboBoxItem Content="Ouvert"/>
+                            <ComboBoxItem Content="En cours"/>
                             <ComboBoxItem Content="Ferme"/>
                         </ComboBox>
                     </DockPanel>
@@ -93,28 +94,29 @@
                     <StackPanel>
                         <Label Content="Recherche" Style="{StaticResource LabelFenTicket}"/>
                         <TextBox Name="txtBoxRecherche" Style="{StaticResource TextBoxFenTicket}" Margin="5,0,0,0"/>
-                        <Button Name="btnRechercheTicket" Content="Rechercher" Style="{StaticResource btnRechercher}"/>
+                        <Button Name="btnRechercheTicket" Content="Rechercher" Style="{StaticResource btnRechercher}" Click="btnRechercheTicket_Click"/>
                     </StackPanel>
                 </WrapPanel>
 
             </Grid>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Name="btnAjouterTicket" Content="Ajouter" Style="{StaticResource TicketCrudButton}" Click="btnAjouterTicket_Click" />
-                <Button Name="btnModifierTicket" Content="Modifier" Style="{StaticResource TicketCrudButton}" />
-                <Button Name="btnSupprimerTicket" Content="Supprimer" Style="{StaticResource TicketCrudButton}" />
+                <Button Name="btnModifierTicket" Content="Modifier" Style="{StaticResource TicketCrudButton}" Click="btnModifierTicket_Click" />
+                <Button Name="btnSupprimerTicket" Content="Supprimer" Style="{StaticResource TicketCrudButton}" Click="btnSupprimerTicket_Click" />
                 <Button Name="btnReinitialiserTicket" Content="Reinitialiser" Style="{StaticResource TicketCrudButton}" Click="btnReinitialiserTicket_Click"/>
             </StackPanel>
         </WrapPanel>
 
-        <DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Name="dataGridTickets" IsReadOnly="True" SelectionMode="Single" ItemsSource="{Binding Source={StaticResource ticketViewSource}}">
+        <DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Name="dataGridTickets" IsReadOnly="True" SelectionMode="Single" ItemsSource="{Binding Source={StaticResource ticketViewSource}}" AutoGenerateColumns="False" SelectionChanged="dataGridTickets_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" HeaderStyle="{StaticResource DataGridColumn}"/>
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" HeaderStyle="{StaticResource DataGridColumn}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}" HeaderStyle="{StaticResource DataGridColumn}"/>
                 <DataGridTextColumn Header="Categorie" Binding="{Binding Categorie}" HeaderStyle="{StaticResource DataGridColumn}"/>
                 <DataGridTextColumn Header="Priorite" Binding="{Binding Priorite}" HeaderStyle="{StaticResource DataGridColumn}"/>
-                <DataGridTextColumn Header="Creation" Binding="{Binding DateCreation}" HeaderStyle="{StaticResource DataGridColumn}"/>
+                <DataGridTextColumn Header="Creation" Binding="{Binding Datecreation}" HeaderStyle="{StaticResource DataGridColumn}"/>
                 <DataGridTextColumn Header="Fermeture" Binding="{Binding DateFermeture}" HeaderStyle="{StaticResource DataGridColumn}"/>
+                <DataGridTextColumn Header="Nom" Binding="{Binding IdpersonneTicketsNavigation.Nom}" HeaderStyle="{StaticResource DataGridColumn}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
