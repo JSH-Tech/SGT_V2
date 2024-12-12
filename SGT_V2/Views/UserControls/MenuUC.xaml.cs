@@ -42,5 +42,11 @@ namespace SGT_V2.Views.UserControls
             Fenetres.FenCommentaire fenComment = new Fenetres.FenCommentaire();
             fenComment.ShowDialog();
         }
+
+        private void btnFenDashboard_Click(object sender, RoutedEventArgs e)
+        {
+            Fenetres.FenDashboard fenDashboard = new Fenetres.FenDashboard();
+            fenDashboard.ShowDialog();
+        }
     }
 }

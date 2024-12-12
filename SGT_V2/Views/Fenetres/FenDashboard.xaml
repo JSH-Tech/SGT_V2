@@ -1,0 +1,14 @@
+﻿<Window x:Class="SGT_V2.Views.Fenetres.FenDashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SGT_V2.Views.Fenetres"
+        xmlns:uc="clr-namespace:SGT_V2.Views.UserControls"
+        mc:Ignorable="d"
+        Style="{StaticResource ThemeFenetre}"
+        Title="FenDashboard" Height="798" Width="800">
+    <Grid>
+        <uc:DashboardUC/>
+    </Grid>
+</Window>

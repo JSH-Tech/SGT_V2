@@ -26,4 +26,9 @@ public partial class Ticket
     public virtual ICollection<Commentaire> Commentaires { get; set; } = new List<Commentaire>();
 
     public virtual Personne IdpersonneTicketsNavigation { get; set; } = null!;
+
+    public override string ToString()
+    {
+        return Titre;
+    }
 }

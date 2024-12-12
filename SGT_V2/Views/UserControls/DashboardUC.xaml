@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="SGT_V2.Views.UserControls.DashboardUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SGT_V2.Views.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="900"
+            xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="ticketViewSource"/>
+        <CollectionViewSource x:Key="personneViewSource"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="DASHBOARD" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2" Style="{StaticResource TitreFenPerson}"/>
+
+        <!-- Statistiques des Tickets -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+            <TextBlock Text="Statistiques des Tickets" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Border BorderBrush="Black" BorderThickness="1" Padding="10" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Total Tickets" FontWeight="Bold"  Style="{StaticResource txtblackDashboard}"/>
+                        <TextBlock Text="{Binding TotalTickets}"/>
+                    </StackPanel>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1" Padding="10" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Tickets Ouverts" FontWeight="Bold" Style="{StaticResource txtblackDashboard}"/>
+                        <TextBlock Text="{Binding OpenTickets}"/>
+                    </StackPanel>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1" Padding="10" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Tickets Fermés" FontWeight="Bold" Style="{StaticResource txtblackDashboard}"/>
+                        <TextBlock Text="{Binding ClosedTickets}"/>
+                    </StackPanel>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1" Padding="10" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Tickets en Cours" FontWeight="Bold" Style="{StaticResource txtblackDashboard}"/>
+                        <TextBlock Text="{Binding InProgressTickets}"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Graphiques -->
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
+            <TextBlock Text="Graphiques" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" Style="{StaticResource txtblackDashboard}"/>
+            <Border BorderBrush="Black" BorderThickness="1" Padding="10" Margin="5">
+                <StackPanel>
+                    <TextBlock Text="Graphique de Répartition des Tickets par Statut" FontWeight="Bold" Style="{StaticResource txtblackDashboard}"/>
+                    <!-- Placeholder for a chart control -->
+                    <lvc:PieChart Series="{Binding TicketStatusSeries}" Height="200" Margin="5"/>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0" Margin="10">
+            <TextBlock Text="Graphiques" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" Style="{StaticResource txtblackDashboard}"/>
+            <Border BorderBrush="Black" BorderThickness="1" Padding="10" Margin="5">
+                <StackPanel>
+                    <TextBlock Text="Graphique de Tendance des Tickets" FontWeight="Bold" Style="{StaticResource txtblackDashboard}"/>
+                    <!-- Placeholder for a chart control -->
+                    <lvc:CartesianChart Series="{Binding TicketTrendSeries}" Height="200" Margin="5"/>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+
+
+        <!-- Activité Récente -->
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2"  Margin="0,80,0,0">
+            <TextBlock Text="Activité Récente" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" Style="{StaticResource txtblackDashboard}"/>
+            <DataGrid Name="dataGridRecentActivity" AutoGenerateColumns="False" IsReadOnly="True" Height="200">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="*"/>
+                    <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" Width="*"/>
+                    <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"/>
+                    <DataGridTextColumn Header="Personne" Binding="{Binding Personne}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</UserControl>

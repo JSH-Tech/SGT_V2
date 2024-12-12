@@ -10,11 +10,13 @@
 
   <ItemGroup>
     <None Remove="Images\commentaire94.png" />
+    <None Remove="Images\dashboard.jpg" />
     <None Remove="Images\personne96.png" />
     <None Remove="Images\tickets96.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -24,6 +26,9 @@
 
   <ItemGroup>
     <Resource Include="Images\commentaire94.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\dashboard.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\personne96.png">

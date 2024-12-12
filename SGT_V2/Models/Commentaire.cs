@@ -14,4 +14,5 @@ public partial class Commentaire
     public string Contenu { get; set; } = null!;
 
     public virtual Ticket IdticketCommentaireNavigation { get; set; } = null!;
+
 }

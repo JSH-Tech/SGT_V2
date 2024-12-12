@@ -149,31 +149,36 @@ namespace SGT_V2.Views.UserControls
         {
             if (dataGridPerson.SelectedItem is Personne personne)
             {
-                personne.Nom = txtBoxNom.Text;
-                personne.Courriel = txtBoxCourriel.Text;
-                personne.Departement = txtBoxDepartement.Text;
-                personne.Matricule = int.Parse(txtBoxMatricule.Text);
+                MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment supprimer cette personne ?", "Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
 
-                try
+                if (result == MessageBoxResult.OK)
                 {
-                    sgtContext.Remove(personne);
-                    sgtContext.SaveChanges();
-                    MessageBox.Show("Personne supprimée avec succès");
-                }
-                catch (Exception ex)
-                {
+                    personne.Nom = txtBoxNom.Text;
+                    personne.Courriel = txtBoxCourriel.Text;
+                    personne.Departement = txtBoxDepartement.Text;
+                    personne.Matricule = int.Parse(txtBoxMatricule.Text);
 
-                    MessageBox.Show("Erreur" + ex.Message);
-                }
+                    try
+                    {
+                        sgtContext.Remove(personne);
+                        sgtContext.SaveChanges();
+                        MessageBox.Show("Personne supprimée avec succès");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erreur: " + ex.Message);
+                    }
 
-                dataGridPerson.Items.Refresh();
-                ViderChamps();
+                    dataGridPerson.Items.Refresh();
+                    ViderChamps();
+                }
             }
             else
             {
-                MessageBox.Show("Veuillez selectionner une personne à supprimer");
+                MessageBox.Show("Veuillez sélectionner une personne à supprimer");
             }
         }
+
 
         //Button reinitialiser
         private void btnReinitialiserPerson_Click(object sender, RoutedEventArgs e)
